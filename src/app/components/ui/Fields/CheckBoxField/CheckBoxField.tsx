@@ -1,11 +1,11 @@
-import React from "react";
+import React, {FC} from "react";
 
 interface ICheckBox {
     name: string,
     value: boolean,
-    error: string,
+    error?: string,
     children?: React.ReactNode,
-    onChange: () => void
+    onChange: (arg: {name: string, value: boolean}) => void
 }
 
 const CheckBoxField: FC<ICheckBox> = ({ name, value, onChange, children, error }) => {

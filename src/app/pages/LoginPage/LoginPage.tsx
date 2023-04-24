@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import {FC, useState } from "react";
 import { useParams } from "react-router-dom";
 import styles from "./LoginPage.module.scss";
 import LoginForm from "../../components/ui/LoginForm/LoginForm";

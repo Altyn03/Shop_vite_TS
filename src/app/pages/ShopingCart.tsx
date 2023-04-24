@@ -1,6 +1,6 @@
-import React from "react";
+import {FC} from "react";
 
-const ShopingCart = () => {
+const ShopingCart: FC = () => {
     return <div>ShopingCart</div>;
 };
 

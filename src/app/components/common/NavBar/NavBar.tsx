@@ -1,9 +1,9 @@
-import React from "react";
+import {FC} from "react";
 import styles from "./NavBar.module.scss";
 import { NavLink, Link } from "react-router-dom";
 
-const NavBar = () => {
-    const setActive = ({ isActive }): CSSModuleClasses => {
+const NavBar: FC = () => {
+    const setActive = ({isActive}: {isActive:boolean}): string => {
         return isActive
             ? `${styles.nav_item} ${styles.active}`
             : styles.nav_item;

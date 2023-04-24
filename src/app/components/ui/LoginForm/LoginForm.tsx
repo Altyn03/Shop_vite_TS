@@ -1,18 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React, { FC, useState, useEffect } from "react";
 import TextField from "../Fields/TextField/TextField";
 import CheckBoxField from "../Fields/CheckBoxField/CheckBoxField";
 import styles from "./LoginForm.module.scss";
 import { validator } from "../../../utils/validator";
 
-const LoginForm = () => {
+const LoginForm: FC = () => {
     const [data, setData] = useState({
         email: "",
         password: "",
         stayOn: false
     });
-    const [errors, setErrors] = useState({});
+    const [errors, setErrors] = useState({ 
+        email: "",
+        password: "",
+    });
 
-    const handleChange = (target) => {
+    const handleChange = (target: {name: string, value: string | boolean}) => {
         setData((prevState) => ({
             ...prevState,
             [target.name]: target.value
@@ -69,6 +72,7 @@ const LoginForm = () => {
             <TextField
                 label="Электронная почта"
                 name="email"
+                type="text"
                 value={data.email}
                 onChange={handleChange}
                 error={errors.email}

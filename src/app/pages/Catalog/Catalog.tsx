@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { FC, useState, useEffect } from "react";
 import axios from "axios";
 import styles from "./Catalog.module.scss";
 import FilterByCategory from "../../components/common/FilterByCategory/FilterByCategory";
@@ -73,7 +73,7 @@ const Catalog: FC = () => {
 
     const handleSelectCategory = (category: string) => {
         if (category === "All") {
-            setCurrentCategoies();
+            setCurrentCategoies('');
         } else {
             setCurrentCategoies(category);
         }
@@ -96,7 +96,7 @@ const Catalog: FC = () => {
           })
         : items;
 
-    const sortedUsers = [...filteredItems].sort((a, b) => {
+    const sortedUsers = [...filteredItems].sort((a: IItem, b: IItem): any => {
         if (sortOrder === "up") {
             return a.price - b.price;
         } else if (sortOrder === "down") {

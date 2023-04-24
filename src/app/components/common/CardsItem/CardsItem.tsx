@@ -3,11 +3,15 @@ import styles from "./CardsItem.module.scss";
 import CardItem from "../../ui/CardItem/CardItem";
 import IItem from "../../../utils/IItem";
 
-const CardsItem: FC<IItem[]> = ({ items }) => {
+interface IItemProps {
+    items: IItem[]
+}
+
+const CardsItem: React.FC<IItemProps> = ({ items }: IItemProps ) => {
     return (
         <div className={styles.container}>
             {items.map((item) => (
-                <CardItem item={item} key={item.id} />
+                <CardItem {...item} key={item.id} />
             ))}
         </div>
     );

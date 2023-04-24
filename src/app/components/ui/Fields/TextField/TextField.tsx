@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
 import styles from "./TextField.module.scss";
 
 interface IText {
@@ -7,7 +7,7 @@ interface IText {
     type: string,
     value: string,
     error: string,
-    onChange: () => void
+    onChange: (arg: {name: string, value: string}) => void
 }
 
 const TextField: FC<IText> = ({ label, type, name, value, onChange, error }) => {
@@ -50,10 +50,6 @@ const TextField: FC<IText> = ({ label, type, name, value, onChange, error }) => 
             </div>
         </div>
     );
-};
-
-TextField.defaultProps = {
-    type: "text"
 };
 
 export default TextField;

@@ -1,19 +1,19 @@
-import React from "react";
+import {FC} from "react";
 import styles from "./Pagination.module.scss";
 
 interface IPaginationProps {
     itemsCount: number,
     currentPage: number,
     pageSize: number,
-    handlePageChange: () => void
+    handlePageChange: (arg: number) => void
 }
 
-const Pagination: FC = ({
+const Pagination: FC<IPaginationProps> = ({
     itemsCount,
     handlePageChange,
     currentPage,
     pageSize
-} : IPaginationProps) => {
+}) => {
     const pageCount = Math.ceil(itemsCount / pageSize);
     if (pageCount === 1) return null;
     const pages = [];

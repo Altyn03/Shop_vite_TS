@@ -1,4 +1,4 @@
-import React from "react";
+import React, {FC} from "react";
 import styles from "./RadioField.module.scss";
 
 interface IOption{
@@ -11,7 +11,7 @@ interface IRadio {
     label: string,
     value: string,
     options: IOption[],
-    onChange: () => void
+    onChange: (arg: {name: string, value: string}) => void
 }
 
 const RadioField: FC<IRadio> = ({ options, name, value, onChange, label }) => {

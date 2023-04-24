@@ -1,15 +1,24 @@
-import React from "react";
+import {FC} from "react";
 import styles from "./CardItem.module.scss";
 import { Link } from "react-router-dom";
-import IItem from "../../../utils/IItem"
 
-const CardItem: FC<IItem> = ({ item }) => {
+interface IIm {
+    id: number,
+    image: string,
+    title: string,
+    price: number,
+    rating: {
+        rate: number,
+    },
+}
+
+const CardItem: FC<IIm> = ({ id, image, title, price, rating }) => {
     return (
-        <Link to={`/catalog/${item.id}`} className={styles.item}>
-            <img src={item.image} alt="sneakers" className={styles.img} />
-            <h1>{item.title}</h1>
-            <h2>{item.price} $</h2>
-            <h3>Rating: {item.rating.rate}</h3>
+        <Link to={`/catalog/${id}`} className={styles.item}>
+            <img src={image} alt="sneakers" className={styles.img} />
+            <h1>{title}</h1>
+            <h2>{price} $</h2>
+            <h3>Rating: {rating.rate}</h3>
             <div className={styles.item__button}>
                 <button className={styles.item__button_item}>
                     Больше фото

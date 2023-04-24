@@ -1,10 +1,10 @@
-import React from "react";
+import {FC} from "react";
 import styles from "./FilterByCategory.module.scss";
 
 interface IFilter {
     currentCategories: string,
     categories: string[],
-    handleSelectCategory: () => void,
+    handleSelectCategory: (arg:string) => void,
 }
 
 const FilterByCategory: FC<IFilter> = ({

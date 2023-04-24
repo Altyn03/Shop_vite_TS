@@ -1,12 +1,12 @@
-import React from "react";
+import {FC} from "react";
 import styles from "./SortItems.module.scss";
 
 interface ISort{
-    onSort: () => void,
+    onSort: (arg: string) => void,
     sortOrder: string
 }
 
-const SortItems = ({ onSort, sortOrder }) => {
+const SortItems: FC<ISort> = ({ onSort, sortOrder }) => {
     return (
         <div className={styles.sortBlock}>
             <div

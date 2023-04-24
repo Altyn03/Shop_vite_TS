@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { FC, useState, useEffect } from "react";
 import styles from "./ItemPage.module.scss";
 import { useParams, useNavigate } from "react-router-dom";
 import Loader from "../../components/ui/Loader/Loader";
@@ -9,7 +9,7 @@ const ItemPage: FC = () => {
     const { id } = useParams();
     const navigate = useNavigate();
 
-    const [item, setItem] = useState<IItem>({});
+    const [item, setItem] = useState<IItem | any>({});
 
     const [isError, setIsError] = useState(false);
     const [isLoading, setIsLoading] = useState(true);

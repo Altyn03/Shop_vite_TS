@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { FC, useState, useEffect } from "react";
 import TextField from "../Fields/TextField/TextField";
 import RadioField from "../Fields/RadioField/RadioField";
 import styles from "./RegisterForm.module.scss";
@@ -13,9 +13,14 @@ const RegisterForm: FC = () => {
         sex: "male",
         licence: false
     });
-    const [errors, setErrors] = useState({});
+    const [errors, setErrors] = useState({ 
+        name:"",
+        email: "",
+        password: "",
+        licence: "",
+    });
 
-    const handleChange = (target) => {
+    const handleChange = (target: {name: string, value: string | boolean}) => {
         setData((prevState) => ({
             ...prevState,
             [target.name]: target.value
@@ -83,6 +88,7 @@ const RegisterForm: FC = () => {
             <TextField
                 label="Ваше полное имя"
                 name="name"
+                type="text"
                 value={data.name}
                 onChange={handleChange}
                 error={errors.name}
@@ -90,6 +96,7 @@ const RegisterForm: FC = () => {
             <TextField
                 label="Электронная почта"
                 name="email"
+                type="text"
                 value={data.email}
                 onChange={handleChange}
                 error={errors.email}
